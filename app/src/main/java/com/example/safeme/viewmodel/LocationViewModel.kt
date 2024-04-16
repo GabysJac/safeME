@@ -30,10 +30,15 @@ class LocationViewModel : ViewModel() {
             ) { locationId ->
                 if (locationId != null) {
 
-                    Toast.makeText(context, "Localización guardada con ID: $locationId", Toast.LENGTH_LONG).show()
+                    Toast.makeText(
+                        context,
+                        "Localización guardada con ID: $locationId",
+                        Toast.LENGTH_LONG
+                    ).show()
                 } else {
 
-                    Toast.makeText(context, "Error al guardar la localización.", Toast.LENGTH_LONG).show()
+                    Toast.makeText(context, "Error al guardar la localización.", Toast.LENGTH_LONG)
+                        .show()
                 }
             }
         }

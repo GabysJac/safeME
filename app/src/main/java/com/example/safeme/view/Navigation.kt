@@ -64,13 +64,13 @@ fun MainScreen() {
     val navController = rememberNavController()
 
     Scaffold(
-        topBar = { MainTopBar(onSettingsClick = {  }) },
+        topBar = { MainTopBar(onSettingsClick = { }) },
         bottomBar = { MainBottomBar(navController) }
     ) { innerPadding ->
         NavHost(navController, startDestination = "home", Modifier.padding(innerPadding)) {
             composable("home") {
                 HomeScreen(
-                    onPanicClicked = {  },
+                    onPanicClicked = { },
 
                     )
             }
@@ -126,7 +126,7 @@ fun MainBottomBar(navController: NavController) {
         containerColor = Color(0xFFFC5108),
         contentColor = Color.White
 
-    ){
+    ) {
 
         val items = listOf("home", "map", "contacts", "history")
         val icons = listOf(
@@ -179,8 +179,6 @@ fun MainBottomBar(navController: NavController) {
         }
     }
 }
-
-
 
 
 @OptIn(ExperimentalMaterial3Api::class)

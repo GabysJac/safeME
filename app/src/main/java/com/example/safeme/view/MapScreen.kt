@@ -90,13 +90,15 @@ fun MapScreen(viewModel: LocationViewModel = viewModel()) {
         when {
             ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) ==
                     PackageManager.PERMISSION_GRANTED -> {
-                        //escucha los puntos guardados
+                //escucha los puntos guardados
                 viewModel.startListeningForLocations()
             }
+
             activity?.shouldShowRequestPermissionRationale(Manifest.permission.ACCESS_FINE_LOCATION) == true -> {
 
                 showPermissionExplanationDialog.value = true
             }
+
             else -> {
 
                 permissionLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION)
@@ -152,7 +154,10 @@ fun MapScreen(viewModel: LocationViewModel = viewModel()) {
             map.uiSettings.isMyLocationButtonEnabled = true
 
             // Permiso de ubicación, necesario para habilitar el botón de ubicación actual
-            if (ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) ==
+            if (ContextCompat.checkSelfPermission(
+                    context,
+                    Manifest.permission.ACCESS_FINE_LOCATION
+                ) ==
                 PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(
                     context, Manifest.permission.ACCESS_COARSE_LOCATION
                 ) == PackageManager.PERMISSION_GRANTED
@@ -270,8 +275,6 @@ fun MapScreen(viewModel: LocationViewModel = viewModel()) {
     }
 
 }
-
-
 
 
 @Composable
