@@ -64,29 +64,27 @@ fun MainScreen() {
     val navController = rememberNavController()
 
     Scaffold(
-        topBar = { MainTopBar(onSettingsClick = { /* TODO: Handle settings click here */ }) },
+        topBar = { MainTopBar(onSettingsClick = {  }) },
         bottomBar = { MainBottomBar(navController) }
     ) { innerPadding ->
         NavHost(navController, startDestination = "home", Modifier.padding(innerPadding)) {
             composable("home") {
                 HomeScreen(
-                    onPanicClicked = { /* TODO: Handle panic click here */ },
+                    onPanicClicked = {  },
 
                     )
             }
             composable("map") { MapScreen() }
             composable("contacts") {
-                // Asumiendo que tienes una función que te proporciona la lista de contactos
-                val contacts = listOf<EmergencyContact>() // Obtén tus contactos de alguna fuente
+                val contacts = listOf<EmergencyContact>()
                 ContactsScreen(
                     contacts = contacts,
-                    onAddContact = { /* TODO: Handle add contact here */ },
-                    onEditContact = { /* TODO: Handle edit contact here */ }
+                    onAddContact = { },
+                    onEditContact = { }
                 )
             }
             composable("history") {
-                // Asumiendo que tienes una función que te proporciona el historial de alertas
-                val alerts = listOf<AlertHistoryItem>() // Obtén tus alertas de alguna fuente
+                val alerts = listOf<AlertHistoryItem>()
                 HistoryScreen(alerts = alerts)
             }
         }
